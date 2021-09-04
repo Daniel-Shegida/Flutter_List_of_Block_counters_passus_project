@@ -51,45 +51,58 @@ class _ShowNotePageState extends State<ShowNotePage> {
            title: Text("EditNote"),
           ),
       body: Center(
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-            FloatingActionButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              tooltip: 'cancel',
-              child: Icon(Icons.close),
-            ),
-            FloatingActionButton(
-              onPressed: increaseCounter,
-              tooltip: 'Increment',
-              child: Icon(Icons.add),
-            ),
-            Container(
-              width: 100,
-              child: Center(
-                child: Text("$_number"),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    FloatingActionButton(
+                      onPressed: decreaseCounter,
+                      tooltip: 'Decrement',
+                      child: Icon(Icons.remove),
+                    ),
+                    Container(
+                      width: 100,
+                      child: Center(
+                        child: Text("$_number"),
+                      ),
+                    ),
+                    FloatingActionButton(
+                      onPressed: increaseCounter,
+                      tooltip: 'Increment',
+                      child: Icon(Icons.add),
+                    ),
+                  ]),
+
+              SizedBox(height: 50,),
+
+              OutlinedButton(
+                onPressed: () {
+                  noteBloc.add(UpdateNoteEvent(
+                      number: _number,
+                      index: widget.index
+                  ));
+                  Navigator.pop(context);
+                },
+                child: const Text('Update Counter'),
               ),
-            ),
-            FloatingActionButton(
-              onPressed: decreaseCounter,
-              tooltip: 'Increment',
-              child: Icon(Icons.remove),
-            ),
-            FloatingActionButton(
-              onPressed: () {
-                noteBloc.add(UpdateNoteEvent(
-                  number: _number,
-                  index: widget.index
-                ));
-                Navigator.pop(context);
-              },
-              tooltip: 'add',
-              child: Icon(Icons.accessible_forward),
-            ),
-          ])),
+            ],
+          )),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+
+// FloatingActionButton(
+// onPressed: () {
+// noteBloc.add(UpdateNoteEvent(
+// number: _number,
+// index: widget.index
+// ));
+// Navigator.pop(context);
+// },
+// tooltip: 'add',
+// child: Icon(Icons.accessible_forward),
+// )

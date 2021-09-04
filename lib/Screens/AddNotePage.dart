@@ -20,7 +20,6 @@ class _AddNotePageState extends State<AddNotePage> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
 //Todo later as event
@@ -41,51 +40,67 @@ class _AddNotePageState extends State<AddNotePage> {
 
     return Scaffold(
       appBar: AppBar(
-          title: Text("AddNote"),
-          ),
+        title: Text("AddNote"),
+      ),
       body: Center(
-          child: Row(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-            FloatingActionButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              tooltip: 'cancel',
-              child: Icon(Icons.close),
-            ),
-            FloatingActionButton(
-              onPressed: increaseCounter,
-              tooltip: 'Increment',
-              child: Icon(Icons.add),
-            ),
-            Container(
-              width: 100,
-              child: Center(
-                child: Text("$_number"),
-              ),
-            ),
-            FloatingActionButton(
-              onPressed: decreaseCounter,
-              tooltip: 'Increment',
-              child: Icon(Icons.remove),
-            ),
-            FloatingActionButton(
+                // FloatingActionButton(
+                //   onPressed: () {
+                //     Navigator.pop(context);
+                //   },
+                //   tooltip: 'cancel',
+                //   child: Icon(Icons.close),
+                // ),
+                FloatingActionButton(
+                  onPressed: decreaseCounter,
+                  tooltip: 'Decrement',
+                  child: Icon(Icons.remove),
+                ),
+                Container(
+                  width: 100,
+                  child: Center(
+                    child: Text("$_number"),
+                  ),
+                ),
+                FloatingActionButton(
+                  onPressed: increaseCounter,
+                  tooltip: 'Increment',
+                  child: Icon(Icons.add),
+                ),
+                // FloatingActionButton(
+                //   onPressed: () {
+                //     noteBloc.add(AddNoteFrave(
+                //       number: _number,
+                //     ));
+                //     Navigator.pop(context);
+                //   },
+                //   tooltip: 'add',
+                //   child: Icon(Icons.accessible_forward),
+                // ),
+              ]),
+
+          SizedBox(height: 50,),
+
+          OutlinedButton(
               onPressed: () {
                 noteBloc.add(AddNoteFrave(
                   number: _number,
                 ));
                 Navigator.pop(context);
               },
-              tooltip: 'add',
-              child: Icon(Icons.accessible_forward),
-            ),
-          ])),
+            child: const Text('Add Counter'),
+          ),
+        ],
+      )),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
-
 
 // body: Center(
 // child: Row(
