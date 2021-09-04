@@ -95,14 +95,3 @@ class _ShowNotePageState extends State<ShowNotePage> {
 }
 
 
-// FloatingActionButton(
-// onPressed: () {
-// noteBloc.add(UpdateNoteEvent(
-// number: _number,
-// index: widget.index
-// ));
-// Navigator.pop(context);
-// },
-// tooltip: 'add',
-// child: Icon(Icons.accessible_forward),
-// )

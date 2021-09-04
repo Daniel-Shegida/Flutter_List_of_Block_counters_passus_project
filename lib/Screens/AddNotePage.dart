@@ -49,13 +49,6 @@ class _AddNotePageState extends State<AddNotePage> {
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                // FloatingActionButton(
-                //   onPressed: () {
-                //     Navigator.pop(context);
-                //   },
-                //   tooltip: 'cancel',
-                //   child: Icon(Icons.close),
-                // ),
                 FloatingActionButton(
                   onPressed: decreaseCounter,
                   tooltip: 'Decrement',
@@ -72,16 +65,6 @@ class _AddNotePageState extends State<AddNotePage> {
                   tooltip: 'Increment',
                   child: Icon(Icons.add),
                 ),
-                // FloatingActionButton(
-                //   onPressed: () {
-                //     noteBloc.add(AddNoteFrave(
-                //       number: _number,
-                //     ));
-                //     Navigator.pop(context);
-                //   },
-                //   tooltip: 'add',
-                //   child: Icon(Icons.accessible_forward),
-                // ),
               ]),
 
           SizedBox(height: 50,),
