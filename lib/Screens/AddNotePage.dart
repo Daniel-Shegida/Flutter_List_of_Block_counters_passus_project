@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:passus_project/Block/Notes/notes_block.dart';
+import 'package:passus_project/Block/Counters/counter_block.dart';
 
 class AddNotePage extends StatefulWidget {
   @override
@@ -36,7 +36,7 @@ class _AddNotePageState extends State<AddNotePage> {
       });
     }
 
-    final noteBloc = BlocProvider.of<NotesBloc>(context);
+    final noteBloc = BlocProvider.of<CountersBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -71,7 +71,7 @@ class _AddNotePageState extends State<AddNotePage> {
 
           OutlinedButton(
               onPressed: () {
-                noteBloc.add(AddNoteFrave(
+                noteBloc.add(AddCountersFrave(
                   number: _number,
                 ));
                 Navigator.pop(context);

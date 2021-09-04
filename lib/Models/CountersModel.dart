@@ -1,14 +1,14 @@
 import 'package:hive/hive.dart';
 
-part 'NoteModel.g.dart';
+part 'CountersModel.g.dart';
 
 @HiveType(typeId: 1)
-class NoteModels {
+class CountersModels {
 
   @HiveField(0)
   int? number;
 
 
-  NoteModels({ this.number});
+  CountersModels({ this.number});
 
 }

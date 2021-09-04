@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:passus_project/Block/Notes/notes_block.dart';
-import 'package:passus_project/Models/NoteModel.dart';
+import 'package:passus_project/Block/Counters/counter_block.dart';
+import 'package:passus_project/Models/CountersModel.dart';
 import 'package:passus_project/Widgets/CardWidget.dart';
 import 'AddNotePage.dart';
 import 'EditNotePage.dart';
@@ -18,7 +18,7 @@ class _HomePage extends State<HomePage> {
     super.initState();
   }
 
-  var box = Hive.box<NoteModels>('KeepCounter');
+  var box = Hive.box<CountersModels>('KeepCounter');
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +36,14 @@ class _HomePage extends State<HomePage> {
               );
             }
 
-            return BlocBuilder<NotesBloc, NotesState>(builder: (_, state) {
+            return BlocBuilder<CountersBloc, CountersState>(builder: (_, state) {
               return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   itemCount: box.values.length,
                   itemBuilder: (_, i) {
-                    NoteModels notes = box.getAt(i);
+                    CountersModels notes = box.getAt(i);
 
-                    return BlocBuilder<NotesBloc, NotesState>(
+                    return BlocBuilder<CountersBloc, CountersState>(
                         builder: (_, state) =>
                             _ListNotes(note: notes, index: i));
                   });
@@ -61,7 +61,7 @@ class _HomePage extends State<HomePage> {
 }
 
 class _ListNotes extends StatelessWidget {
-  final NoteModels note;
+  final CountersModels note;
   final int index;
 
   const _ListNotes({required this.note, required this.index});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:passus_project/Block/Notes/notes_block.dart';
-import 'package:passus_project/Models/NoteModel.dart';
+import 'package:passus_project/Block/Counters/counter_block.dart';
+import 'package:passus_project/Models/CountersModel.dart';
 
 class ShowNotePage extends StatefulWidget {
-  final NoteModels note;
+  final CountersModels note;
   final int index;
 
   const ShowNotePage({required this.note, required this.index});
@@ -44,7 +44,7 @@ class _ShowNotePageState extends State<ShowNotePage> {
       });
     }
 
-    final noteBloc = BlocProvider.of<NotesBloc>(context);
+    final noteBloc = BlocProvider.of<CountersBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -79,7 +79,7 @@ class _ShowNotePageState extends State<ShowNotePage> {
 
               OutlinedButton(
                 onPressed: () {
-                  noteBloc.add(UpdateNoteEvent(
+                  noteBloc.add(UpdateCountersEvent(
                       number: _number,
                       index: widget.index
                   ));
