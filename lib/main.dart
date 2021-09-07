@@ -8,6 +8,7 @@ import 'Screens/Homepage.dart';
 
 void main() async {
 
+  //TODO: пусмтые строки - это мощный инструмент. Но когда они стоят в рандомных местах - они сильно загрязняют код.
 
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();

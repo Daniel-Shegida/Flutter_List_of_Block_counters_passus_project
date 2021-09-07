@@ -13,16 +13,19 @@ class _AddNotePageState extends State<AddNotePage> {
   @override
   void initState() {
     super.initState();
+    //TODO: зачем пепеопределчть метод родителя без всякой полезной нагрузки?
   }
 
   @override
   void dispose() {
     super.dispose();
+    //TODO: зачем пепеопределчть метод родителя без всякой полезной нагрузки?
   }
 
   @override
   Widget build(BuildContext context) {
-//Todo later as event
+//Todo later as event - когда?
+//Плюс ко всему этот код поторяется as is на двух экранах - а это уже явное противоречие такому классному принципу как DRY
     void increaseCounter() {
       setState(() {
         _number++;
@@ -85,6 +88,7 @@ class _AddNotePageState extends State<AddNotePage> {
   }
 }
 
+//TODO: Что это все что ниже?
 // body: Center(
 // child: Row(
 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
