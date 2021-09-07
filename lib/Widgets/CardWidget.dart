@@ -17,7 +17,7 @@ class _CardWidget extends State<CardWidget> {
       padding: EdgeInsets.all(10.0),
       margin: EdgeInsets.only(bottom: 15.0, top: 15.0),
       height: 110,
-      width: widget.wildth,
+      width: widget.wildth, //TODO: по умолчанию будет максимальная ширина. Зачем сюда передавать иное?
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50.0), color: Colors.white54),
       child: Center(

@@ -3,7 +3,7 @@ part of 'counter_block.dart';
 @immutable
 abstract class CountersEvent {}
 
-
+//TODO: Почему Frave?
 class AddCountersFrave extends CountersEvent {
 
    int number;
