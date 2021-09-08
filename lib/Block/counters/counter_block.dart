@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:passus_project/Models/CountersModel.dart';
+import 'package:passus_project/Models/counters_model.dart';
 import 'package:flutter/material.dart';
 
 part 'counters_event.dart';

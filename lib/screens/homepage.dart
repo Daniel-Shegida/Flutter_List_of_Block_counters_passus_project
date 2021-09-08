@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:passus_project/Block/Counters/counter_block.dart';
-import 'package:passus_project/Models/CountersModel.dart';
-import 'package:passus_project/Widgets/CardWidget.dart';
-import 'AddNotePage.dart';
-import 'EditNotePage.dart';
+import 'package:passus_project/Models/counters_model.dart';
+import 'package:passus_project/Widgets/card_widget.dart';
+import 'add_counter_page.dart';
+import 'edit_counter_page.dart';
 
 class HomePage extends StatefulWidget {
   @override

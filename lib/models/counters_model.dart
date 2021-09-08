@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'CountersModel.g.dart';
+part 'counters_model.g.dart';
 
 @HiveType(typeId: 1)
 class CountersModels {

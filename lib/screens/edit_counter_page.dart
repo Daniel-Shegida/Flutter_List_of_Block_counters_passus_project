@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passus_project/Block/Counters/counter_block.dart';
-import 'package:passus_project/Models/CountersModel.dart';
+import 'package:passus_project/Models/counters_model.dart';
 
 class ShowNotePage extends StatefulWidget {
   final CountersModels note;

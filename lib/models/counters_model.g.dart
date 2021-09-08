@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'CountersModel.dart';
+part of 'counters_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
