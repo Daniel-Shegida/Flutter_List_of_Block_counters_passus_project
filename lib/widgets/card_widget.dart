@@ -21,25 +21,26 @@ class _CardWidget extends State<CardWidget> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50.0), color: Colors.white54),
       child: Center(
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-            FloatingActionButton(
-              onPressed: null,
-              tooltip: 'Increment',
-              child: Icon(Icons.remove),
-            ),
-            Container(
-                width: 100,
-                child: Center(
-                  child: Text("${widget.number}"),
-                )),
-            FloatingActionButton(
-              onPressed: null,
-              tooltip: 'Increment',
-              child: Icon(Icons.add),
-            ),
-          ])),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              FloatingActionButton(
+                onPressed: null,
+                tooltip: 'Increment',
+                child: Icon(Icons.remove),
+              ),
+              Container(
+                  width: 100,
+                  child: Center(
+                    child: Text("${widget.number}"),
+                  )),
+              FloatingActionButton(
+                onPressed: null,
+                tooltip: 'Increment',
+                child: Icon(Icons.add),
+              )
+            ]),
+      ),
     );
   }
 }

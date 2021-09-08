@@ -8,7 +8,5 @@ class CountersModels {
   @HiveField(0)
   int? number;
 
-
   CountersModels({ this.number});
-
 }

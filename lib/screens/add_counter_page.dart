@@ -11,41 +11,26 @@ class _AddNotePageState extends State<AddNotePage> {
   int _number = 0;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-//Todo later as event
+    final noteBloc = BlocProvider.of<CountersBloc>(context);
+
     void increaseCounter() {
       setState(() {
         _number++;
       });
     }
 
-    //Todo later as event
     void decreaseCounter() {
       setState(() {
         _number--;
       });
     }
 
-    final noteBloc = BlocProvider.of<CountersBloc>(context);
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("AddNote"),
-      ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        appBar: AppBar(
+          title: Text("AddNote"),
+        ),
+        body: Column(children: [
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -54,73 +39,27 @@ class _AddNotePageState extends State<AddNotePage> {
                   tooltip: 'Decrement',
                   child: Icon(Icons.remove),
                 ),
-                Container(
-                  width: 100,
-                  child: Center(
-                    child: Text("$_number"),
-                  ),
-                ),
+                Container(width: 100, child: Center(child: Text("$_number"))),
                 FloatingActionButton(
                   onPressed: increaseCounter,
                   tooltip: 'Increment',
                   child: Icon(Icons.add),
                 ),
               ]),
-
-          SizedBox(height: 50,),
-
-          OutlinedButton(
-              onPressed: () {
-                noteBloc.add(AddCountersFrave(
-                  number: _number,
-                ));
-                Navigator.pop(context);
-              },
-            child: const Text('Add Counter'),
+          SizedBox(
+            height: 50,
           ),
-        ],
-      )),
-      // This trailing comma makes auto-formatting nicer for build methods.
+          OutlinedButton(
+            onPressed: () {
+              noteBloc.add(AddCountersFrave(
+                number: _number,
+              ));
+              Navigator.pop(context);
+            },
+            child: const Text('Add Counter'),
+          )
+        ])
     );
+    // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
-
-// body: Center(
-// child: Row(
-// mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-// children: <Widget>[
-// FloatingActionButton(
-// onPressed: () {
-// Navigator.pop(context);
-// },
-// tooltip: 'cancel',
-// child: Icon(Icons.close),
-// ),
-// FloatingActionButton(
-// onPressed: increaseCounter,
-// tooltip: 'Increment',
-// child: Icon(Icons.add),
-// ),
-// Container(
-// width: 100,
-// child: Center(
-// child: Text("$_number"),
-// ),
-// ),
-// FloatingActionButton(
-// onPressed: decreaseCounter,
-// tooltip: 'Increment',
-// child: Icon(Icons.remove),
-// ),
-// FloatingActionButton(
-// onPressed: () {
-//
-// noteBloc.add(AddNoteFrave(
-// number: _number,
-// ));
-// Navigator.pop(context);
-// },
-// tooltip: 'add',
-// child: Icon(Icons.accessible_forward),
-// ),
-// ])),

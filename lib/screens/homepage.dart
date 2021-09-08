@@ -8,15 +8,12 @@ import 'add_counter_page.dart';
 import 'edit_counter_page.dart';
 
 class HomePage extends StatefulWidget {
+
   @override
   _HomePage createState() => _HomePage();
 }
 
 class _HomePage extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   var box = Hive.box<CountersModels>('KeepCounter');
 
@@ -35,7 +32,6 @@ class _HomePage extends State<HomePage> {
                 child: Text('Нажмите на кнопку, чтобы создать счетчик'),
               );
             }
-
             return BlocBuilder<CountersBloc, CountersState>(builder: (_, state) {
               return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -69,7 +65,6 @@ class _ListNotes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return GestureDetector(
       onTap: () => Navigator.push(
           context,
