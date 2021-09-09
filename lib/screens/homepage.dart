@@ -41,7 +41,7 @@ class _HomePage extends State<HomePage> {
 
                     return BlocBuilder<CountersBloc, CountersState>(
                         builder: (_, state) =>
-                            _ListNotes(note: notes, index: i));
+                            _ListNotes(counter: notes, index: i));
                   });
             });
           },
@@ -57,10 +57,10 @@ class _HomePage extends State<HomePage> {
 }
 
 class _ListNotes extends StatelessWidget {
-  final CountersModels note;
+  final CountersModels counter;
   final int index;
 
-  const _ListNotes({required this.note, required this.index});
+  const _ListNotes({required this.counter, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +69,9 @@ class _ListNotes extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (_) => ShowNotePage(note: note, index: index))),
+              builder: (_) => ShowNotePage(note: counter, index: index))),
       child: CardWidget(
-        number: note.number.toString(),
+        number: counter.number.toString(),
         wildth: size.width,
       ),
     );
