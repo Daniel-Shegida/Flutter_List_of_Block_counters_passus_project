@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'block/Counters/counter_block.dart';
-import 'Models/counters_model.dart';
-import 'Screens/homepage.dart';
-
+import 'package:passus_project/presentation/screens/homepage.dart';
+import 'package:redux/redux.dart';
+import 'data/redux/reducers.dart';
+import 'data/redux/store.dart';
+import 'db/counters_model.dart';
 
 void main() async {
 
-
-  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-
-  Hive.registerAdapter(CountersModelsAdapter());
-
-  await Hive.openBox<CountersModels>('KeepCounter');
+  Hive.registerAdapter(CounterModelAdapter());
+  var hiveBox = await Hive.openBox<CounterModel>("counters");
 
   runApp(MyApp());
 }
@@ -22,14 +19,17 @@ void main() async {
 class MyApp extends StatelessWidget {
 
   @override
-  Widget build(BuildContext context)
-  {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => CountersBloc())
-      ],
+  Widget build(BuildContext context) {
+    Store<AppState> store = Store(reducer, initialState: AppState.initial());
+
+    return StoreProvider(
+      store: store,
       child: MaterialApp(
-        home: HomePage(),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomeScreen(),
       ),
     );
   }
