@@ -10,6 +10,12 @@ class AddCounter extends Action {}
 
 class SaveCounter extends Action {}
 
+class ChangeCounter extends Action{
+  int numToChange;
+
+  ChangeCounter(this.numToChange,);
+}
+
 class AddCounterHive extends Action {
   final CounterModel counter = CounterModel(0);
 }
@@ -17,7 +23,5 @@ class AddCounterHive extends Action {
 class SelectIndex extends Action {
   int index;
 
-  SelectIndex(
-    this.index,
-  );
+  SelectIndex(this.index,);
 }

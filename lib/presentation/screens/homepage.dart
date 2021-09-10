@@ -24,16 +24,16 @@ class _HomeScreen extends State<HomeScreen> {
         child: StoreConnector<AppState, AppState>(
             converter: (store) => store.state,
             builder: (context, vm) {
-              if(vm.counter_numbers.isEmpty){
+              if(vm.counterNumber.isEmpty){
                 return Center(
                   child: Text('Нажмите на кнопку, чтобы создать счетчик'),
                 );
               }
               return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  itemCount: vm.counter_numbers.length,
+                  itemCount: vm.counterNumber.length,
                   itemBuilder: (_, i) {
-                    return _ListNotes(counterNumber: vm.counter_numbers[i], index: i);
+                    return _ListNotes(counterNumber: vm.counterNumber[i], index: i);
                     // return Text(vm.counter_numbers[i].toString());
                   });
             }),
@@ -65,7 +65,7 @@ class _ListNotes extends StatelessWidget {
         store.dispatch(SelectIndex(index));
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => EditCounterPage()));
+            MaterialPageRoute(builder: (_) => EditCounterPage(oldCounterNum: this.counterNumber)));
       },
       child: CardWidget(
         number: this.counterNumber.toString(),

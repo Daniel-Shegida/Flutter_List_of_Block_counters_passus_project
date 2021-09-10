@@ -1,13 +1,11 @@
-
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:passus_project/db/DBhelper.dart';
-
 import 'counters_model.dart';
 
 
 class HiveDBHelper implements DBHelper {
   @override
-  void addNewCounter(String name, int count) {
+  void addNewCounter(int count) {
     var box = Hive.box<CounterModel>("counters");
     CounterModel counterModel = CounterModel(count);
     box.add(counterModel);
@@ -31,10 +29,6 @@ class HiveDBHelper implements DBHelper {
     counterModel.save();
   }
 
-  @override
-  CounterModel getCounter(int index) {
-    return CounterModel(0);
-  }
 
 
 }

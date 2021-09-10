@@ -9,28 +9,32 @@ AppState reducer(AppState prevState, dynamic action) {
   var hiveBox =  Hive.openBox<CounterModel>("counters");
 
   if (action is IncreaseCounter){
-    prevState.counter_numbers[prevState.chosenIndex] += 1;
-    return AppState(counter_numbers: prevState.counter_numbers, chosenIndex: prevState.chosenIndex);
+    prevState.counterNumber[prevState.chosenIndex] += 1;
+    return AppState(counterNumber: prevState.counterNumber, chosenIndex: prevState.chosenIndex);
   }
   else if (action is DecreaseCounter){
-    prevState.counter_numbers[prevState.chosenIndex] -= 1;
-    return AppState(counter_numbers: prevState.counter_numbers,chosenIndex: prevState.chosenIndex);
+    prevState.counterNumber[prevState.chosenIndex] -= 1;
+    return AppState(counterNumber: prevState.counterNumber,chosenIndex: prevState.chosenIndex);
+  }
+  else if (action is ChangeCounter){
+    prevState.counterNumber[prevState.chosenIndex] = action.numToChange;
+    return AppState(counterNumber: prevState.counterNumber,chosenIndex: prevState.chosenIndex);
   }
   else if (action is AddCounter){
-    prevState.counter_numbers.add(0);
-    return AppState(counter_numbers:prevState.counter_numbers ,chosenIndex: prevState.chosenIndex);
+    prevState.counterNumber.add(0);
+    return AppState(counterNumber:prevState.counterNumber ,chosenIndex: prevState.chosenIndex);
   }
   else if (action is SelectIndex){
     prevState.chosenIndex = action.index;
-    return AppState(counter_numbers: prevState.counter_numbers,chosenIndex: prevState.chosenIndex);
+    return AppState(counterNumber: prevState.counterNumber,chosenIndex: prevState.chosenIndex);
   }
   else if (action is SaveCounter){
     DBHelper dbHelper = HiveDBHelper();
-    dbHelper.changeCounterValue(prevState.chosenIndex, prevState.counter_numbers[prevState.chosenIndex]);
+    dbHelper.changeCounterValue(prevState.chosenIndex, prevState.counterNumber[prevState.chosenIndex]);
   }
   else if (action is AddCounterHive){
     DBHelper dbHelper = HiveDBHelper();
-    dbHelper.addNewCounter("1", 3);
+    dbHelper.addNewCounter(0);
   }
   return prevState;
 }
