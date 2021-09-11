@@ -1,5 +1,6 @@
 import 'counters_model.dart';
 
+//Название файла поменяй) оно не оостветствует стилистике языка.
 abstract class DBHelper {
   void addNewCounter(int count);
 

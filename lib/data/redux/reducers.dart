@@ -29,7 +29,7 @@ AppState reducer(AppState prevState, dynamic action) {
     return AppState(counterNumber: prevState.counterNumber,chosenIndex: prevState.chosenIndex);
   }
   else if (action is SaveCounter){
-    DBHelper dbHelper = HiveDBHelper();
+    DBHelper dbHelper = HiveDBHelper(); // зачем создвать два раза? Ну и почитай про Dependency Inversion
     dbHelper.changeCounterValue(prevState.chosenIndex, prevState.counterNumber[prevState.chosenIndex]);
   }
   else if (action is AddCounterHive){
