@@ -24,16 +24,16 @@ class _HomeScreen extends State<HomeScreen> {
         child: StoreConnector<AppState, AppState>(
             converter: (store) => store.state,
             builder: (context, vm) {
-              if(vm.listOfCounters.isEmpty){
+              if(vm.counterNumber.isEmpty){
                 return Center(
                   child: Text('Нажмите на кнопку, чтобы создать счетчик'),
                 );
               }
               return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  itemCount: vm.listOfCounters.length,
+                  itemCount: vm.counterNumber.length,
                   itemBuilder: (_, i) {
-                    return _GestureCounter(counterNumber: vm.listOfCounters[i], index: i);
+                    return _ListNotes(counterNumber: vm.counterNumber[i], index: i);
                     // return Text(vm.counter_numbers[i].toString());
                   });
             }),
@@ -49,11 +49,11 @@ class _HomeScreen extends State<HomeScreen> {
   }
 }
 
-class _GestureCounter extends StatelessWidget {
+class _ListNotes extends StatelessWidget {
   final int index;
   final int counterNumber;
 
-  const _GestureCounter({required this.counterNumber, required this.index});
+  const _ListNotes({required this.counterNumber, required this.index});
 
   @override
   Widget build(BuildContext context) {

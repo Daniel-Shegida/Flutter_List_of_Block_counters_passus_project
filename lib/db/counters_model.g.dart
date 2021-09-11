@@ -6,27 +6,27 @@ part of 'counters_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CountersModelsAdapter extends TypeAdapter<CountersModels> {
+class CounterModelAdapter extends TypeAdapter<CounterModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 0;
 
   @override
-  CountersModels read(BinaryReader reader) {
+  CounterModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return CountersModels(
-      number: fields[0] as int?,
+    return CounterModel(
+      fields[0] as int,
     );
   }
 
   @override
-  void write(BinaryWriter writer, CountersModels obj) {
+  void write(BinaryWriter writer, CounterModel obj) {
     writer
       ..writeByte(1)
       ..writeByte(0)
-      ..write(obj.number);
+      ..write(obj.countNumber);
   }
 
   @override
@@ -35,7 +35,7 @@ class CountersModelsAdapter extends TypeAdapter<CountersModels> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CountersModelsAdapter &&
+      other is CounterModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
