@@ -40,7 +40,7 @@ class _HomeScreen extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          store.dispatch(AddCounterHive());
+          store.dispatch(AddCounterHive()); // Эти две строки лучше разрулить в рамках reducer'а, чем вызывать на уровне UI
           store.dispatch(AddCounter());
         },
         child: Icon(Icons.add),
@@ -49,6 +49,8 @@ class _HomeScreen extends State<HomeScreen> {
   }
 }
 
+// Поработай над названиями классов - они сейчас далеко не всегд читаемы и понятны. 
+// Например этот класс - скорее это некий Item списка. Но совершенно непонятно почему это _ListNotes. Почему списки заметок?
 class _ListNotes extends StatelessWidget {
   final int index;
   final int counterNumber;

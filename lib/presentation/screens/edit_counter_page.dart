@@ -18,7 +18,11 @@ class _EditCounterPageState extends State<EditCounterPage> {
   Widget build(BuildContext context) {
     final Store<AppState> store = StoreProvider.of<AppState>(context);
 
-    bool OLDFLAG = true;
+    bool OLDFLAG = true; // Что делает этот флаг? Из названия неясно в принципе ничего.
+    // Более того - в целом непонятно, даже из кода зачем он нужен. Ты просто его меняешь и сразу делаешь pop.
+    // Следовательно - экран уничтожается и флаг то же.
+    // Таким образом он у тебя по сути всегда true
+    // И только при закрытии экрана при сохранении false, но в этом случае его уже никто и не использует.
 
     return WillPopScope(
       onWillPop: () async{
@@ -46,7 +50,7 @@ class _EditCounterPageState extends State<EditCounterPage> {
                       StoreConnector<AppState, AppState>(
                           converter: (store) => store.state,
                           builder: (context, vm) {
-                            return Container(width: 100, child: Center(child: Text(vm.counterNumber[vm.chosenIndex].toString())));
+                            return Container(width: 100, child: Center(child: Text(vm.counterNumber[vm.chosenIndex].toString()))); // Не забывайте про trailling-comma
                           }),
                       FloatingActionButton(
                         onPressed: () => store.dispatch(IncreaseCounter()),
