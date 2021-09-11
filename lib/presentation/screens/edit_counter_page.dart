@@ -46,7 +46,7 @@ class _EditCounterPageState extends State<EditCounterPage> {
                       StoreConnector<AppState, AppState>(
                           converter: (store) => store.state,
                           builder: (context, vm) {
-                            return Container(width: 100, child: Center(child: Text(vm.counterNumber[vm.chosenIndex].toString())));
+                            return Container(width: 100, child: Center(child: Text(vm.listOfCountets[vm.chosenIndex].toString())));
                           }),
                       FloatingActionButton(
                         onPressed: () => store.dispatch(IncreaseCounter()),
